@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empowerment Quest: Understanding the Flywheel of Domestic Violence</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Empowerment Quest</h1>
+      <p class="tagline">
+        Spin the flywheel, learn the patterns, and unlock your safety plan.
+      </p>
+      <button id="startGame" class="primary">Start the Journey</button>
+    </header>
+
+    <main>
+      <section class="flywheel" aria-live="polite">
+        <div class="wheel">
+          <div class="segment tension" data-stage="Tension Building">
+            <h2>Tension Building</h2>
+            <p>Walking on eggshells? Let's explore the warning signs.</p>
+          </div>
+          <div class="segment incident" data-stage="Incident">
+            <h2>Incident</h2>
+            <p>Moments of harm or escalation — your safety matters.</p>
+          </div>
+          <div class="segment reconciliation" data-stage="Reconciliation">
+            <h2>Reconciliation</h2>
+            <p>Promises and apologies can cloud the truth.</p>
+          </div>
+          <div class="segment calm" data-stage="Calm">
+            <h2>Calm</h2>
+            <p>The quiet after the storm — a chance to plan.</p>
+          </div>
+        </div>
+        <div class="wheel-center">
+          <h3 id="stageName">Choose a stage</h3>
+          <p id="stageDescription">Tap a segment to begin the quest.</p>
+        </div>
+      </section>
+
+      <section class="card" id="questSection" hidden>
+        <header>
+          <h2 id="questTitle">Stage Quest</h2>
+          <p id="questIntro">
+            Each quest is a mini-adventure to recognize patterns and build your
+            support toolkit.
+          </p>
+        </header>
+        <ol id="questList" class="quest-list"></ol>
+        <footer class="card-footer">
+          <button id="nextStage" class="secondary" disabled>
+            Spin to the Next Stage
+          </button>
+        </footer>
+      </section>
+
+      <section class="card" id="safetyPlan" hidden>
+        <header>
+          <h2>Your Empowerment Map</h2>
+          <p>
+            As you complete quests, new power-ups appear to strengthen your
+            safety plan.
+          </p>
+        </header>
+        <ul id="powerUps" class="powerups"></ul>
+        <footer class="card-footer">
+          <a
+            class="primary"
+            href="https://www.thehotline.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reach Out to the Hotline
+          </a>
+        </footer>
+      </section>
+    </main>
+
+    <dialog id="miniGame" aria-live="polite">
+      <form method="dialog">
+        <header>
+          <h2 id="miniGameTitle">Mini Challenge</h2>
+        </header>
+        <p id="miniGamePrompt"></p>
+        <div class="choices" id="miniGameChoices"></div>
+        <menu>
+          <button value="cancel">Close</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <footer class="credits">
+      <p>
+        You deserve safety, respect, and joy. Share this journey with friends or
+        a trusted advocate.
+      </p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
