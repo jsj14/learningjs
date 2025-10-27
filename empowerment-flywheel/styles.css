@@ -1,0 +1,231 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+  color: #1c1c1c;
+  background-color: #faf9ff;
+  --tension: #ffb347;
+  --incident: #ff6961;
+  --reconciliation: #6ec6ff;
+  --calm: #77dd77;
+  --shadow: rgba(36, 26, 69, 0.18);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: radial-gradient(circle at top, #fff 0%, #f0f0ff 70%);
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem 1rem;
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #402050;
+}
+
+.primary,
+.secondary {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0.75rem 1.5rem var(--shadow);
+}
+
+.primary {
+  background: linear-gradient(135deg, #7f7efc, #ff9adc);
+  color: white;
+}
+
+.secondary {
+  background: white;
+  color: #402050;
+}
+
+.primary:disabled,
+.secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.flywheel {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0 1.5rem;
+}
+
+.wheel {
+  position: relative;
+  width: clamp(240px, 60vw, 360px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 3rem var(--shadow);
+}
+
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  gap: 0.5rem;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.segment h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.segment p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.segment:hover,
+.segment:focus {
+  transform: scale(1.04) translate(-3%, -3%);
+  filter: brightness(1.05);
+}
+
+.segment.active {
+  filter: brightness(1.1) saturate(1.1);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.7);
+}
+
+.segment.tension {
+  background: linear-gradient(135deg, var(--tension), #ffdd99);
+  top: 0;
+  left: 0;
+}
+
+.segment.incident {
+  background: linear-gradient(135deg, var(--incident), #ff8f90);
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.segment.reconciliation {
+  background: linear-gradient(135deg, var(--reconciliation), #b0e5ff);
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.segment.calm {
+  background: linear-gradient(135deg, var(--calm), #aee9af);
+  bottom: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
+.wheel-center {
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: white;
+  box-shadow: inset 0 0 1.5rem rgba(127, 126, 252, 0.15);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 1.5rem 3rem var(--shadow);
+  padding: 2rem;
+  max-width: 760px;
+  margin: 0 1.5rem;
+}
+
+.card header h2 {
+  margin-top: 0;
+}
+
+.quest-list {
+  display: grid;
+  gap: 1.2rem;
+  padding-left: 1rem;
+}
+
+.quest-list li {
+  list-style: none;
+  background: #f5f2ff;
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  border-left: 6px solid #7f7efc;
+  position: relative;
+}
+
+.quest-list li.completed::after {
+  content: '★';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: #ff9adc;
+}
+
+.quest-list button {
+  margin-top: 0.75rem;
+}
+
+.powerups {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.powerups li {
+  background: #fdf3ff;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px dashed #ff9adc;
+}
+
+.credits {
+  text-align: center;
+  padding: 1rem 2rem 2rem;
+  color: #503a5a;
+  max-width: 640px;
+}
+
+@media (max-width: 680px) {
+  .segment h2 {
+    font-size: 1rem;
+  }
+
+  .segment p {
+    font-size: 0.8rem;
+  }
+}
